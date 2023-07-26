@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parqueadero</title>
+  <link rel="stylesheet" href="app.component.scss">
+</head>
+<body>
+<div class="encabezado">
+  <h1>Parqueadero Web</h1>
+  <div class="botones">
+    <button routerLink="/" (click)="aparecerDiv()">Inicio</button>
+    <button routerLink="/paginas/parqueadero" (click)="ocultarDiv()">Puestos</button>
+    <button routerLink="/paginas/historial" (click)="ocultarDiv()">Historial</button>
+    <button routerLink="/paginas/factura" (click)="ocultarDiv()">Facturacion</button>
+    <button routerLink="/paginas/cliente" (click)="ocultarDiv()">Clientes</button>
+  </div>
+  <div class="logo">
+    <img src="https://steamuserimages-a.akamaihd.net/ugc/1789596671865739681/245B9E3456AEE2859A05ECDE78ABCD76672014BC/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="logo">
+  </div>  
+</div>
+<div class="centroP" >
+  <div class="centro" *ngIf="inicio">
+    <img src="https://img.freepik.com/fotos-premium/3d-estacionamiento-subterraneo-vacio_751108-1256.jpg" alt="centro">
+    <h2>Bienvenido</h2>
+    <button mat-raised-button class="hvr-radial-out example-button-row" routerLink="/paginas/parqueadero"(click)="ocultarDiv()">Iniciar</button> 
+  </div>  
+  
+<div class="ventanas">
+<router-outlet></router-outlet>
+</div>
+</div>
+<div class="piedepagina">
+<p>&copy; 2023 Andres Alvarado. Todos los derechos reservados.</p>
+<p>Contáctanos: info@miempresa.com</p>
+</div>
+</body>
+</html>
