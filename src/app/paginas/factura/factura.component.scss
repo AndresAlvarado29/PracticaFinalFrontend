@@ -1,0 +1,78 @@
+.container{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 500px;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 13px;
+    padding: 5px;
+    width: 97%;
+}
+label{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    outline: none;
+}
+span{
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+}
+input{
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    border: none;
+    background-color: #588B8B;
+    outline: none;
+}
+.nomyape{
+    display: flex;
+    gap: 10px;
+    width: 100%;  
+}
+.nomyape label{
+    display: flex;
+    flex-direction: column;
+}
+.ceduyruc{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.corycel{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.corycel #txtcelular{
+    width: 12%;
+}
+.numyfec{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.detypres{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+#boton{
+    background-color: #588B8B;
+    display: flex;
+    margin: 20px;
+}
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
