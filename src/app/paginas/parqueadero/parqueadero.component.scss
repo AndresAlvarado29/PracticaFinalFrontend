@@ -2,10 +2,11 @@
     display: flex;
     flex-wrap: wrap; /* Hace que las imágenes se ajusten automáticamente a la línea */
     height: 772px;
+    width: 1325px;
     flex-direction: column;
     padding: 25px;
-    gap: 25px;
-    
+    gap: 13px;
+    overflow: hidden;
 }
 .puesto{
     border-radius: 15px;
@@ -13,15 +14,14 @@
    justify-content: center;
    align-items: center;
    background-color: green; 
-   height: 125px;
-   width: 125px;
-   margin-top: 12px;
+   height: 182px;
+   width: 195px;
    margin-left: 1%;
    padding: 17px;
-   overflow: hidden;
+   cursor: pointer;
    transform-style: preserve-3d; /* Mantiene la estructura 3D del contenido */
    transition: transform 0.9s; /* Agrega una transición para una animación suave */
 }
-.puesto:hover{
-    transform: rotateY(180deg); /* Rota la tarjeta 180 grados en el eje Y al pasar el cursor por encima */
+.puesto:focus{
+    transform: rotateY(180deg); /* Rota la tarjeta 180 grados en el eje*/
 }

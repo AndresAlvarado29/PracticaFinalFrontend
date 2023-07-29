@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //materials
 import {MatButtonModule} from '@angular/material/button';
 import { HistorialComponent } from './paginas/historial/historial.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,16 @@ import { HistorialComponent } from './paginas/historial/historial.component';
     ClienteComponent,
     VehiculoComponent,
     FacturaComponent,
-    HistorialComponent
+    HistorialComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
