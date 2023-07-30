@@ -1,14 +1,15 @@
 .container{
     display: flex;
     justify-content: center;
+    flex-direction: row; 
     align-items: center;
-    flex-direction: column;
     height: 500px;
-    gap: 30px;
-    width: 450px;
+    gap: 130px;
 }
 .formulario{
     display: flex;
+    margin-left: 10%;
+    float: left;
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
@@ -54,3 +55,26 @@ input:hover{
 .example-container mat-form-field + mat-form-field {
     margin-left: 8px;
   }
+
+  //tabla
+  .mat-mdc-table {
+    overflow: auto;
+    width: 100%; 
+    }
+    mat-cell{
+        background-color: #818A89;
+      }
+      mat-table{
+        background-color: #4F7CAC;
+      }
+      
+.tabla{
+    width: 875px;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    top: auto;
+    max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

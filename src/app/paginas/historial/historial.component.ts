@@ -8,8 +8,11 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./historial.component.scss']
 })
 export class HistorialComponent {
+  displayedColumns: string[] = ['Cedula', 'Nombre', 'Apellido', 'Celular','Placa','Ticket','Total'];
   constructor(private router: Router, private app: AppComponent){
-
+    //dataSource = ;
+    //@ViewChild(MatTable)
+    //table!: MatTable<Contacto>;
   }
 ngOnInit(){
   setTimeout(() => {

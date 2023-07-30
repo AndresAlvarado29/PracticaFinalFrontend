@@ -10,20 +10,50 @@
     <div class="container">
         <div class="formulario">
             <h2>Nuevo Usuario</h2>
-            <label for="txtcedula"><span>Cedula</span> <input id="txtcedula" placeholder="0111111111"/></label>  
-            <label for="txtnombre"><span>Nombre</span><input id="txtnombre"/></label>
-            <label for="txtapellido"><span>Apellido</span><input id="txtapellido"/></label>
-            <label for="txtcelular"><span>Celular</span><input id="txtcelular" placeholder="0999999999"/></label>
-            <label for="txtcorreo"><span>Correo</span><input id="txtcorreo" placeholder="example@gmail.com"/></label>    
-            <label for="txtdireccion"><span>Direccion</span><input id="txtdireccion"/></label>
+            <label for="txtcedula"><span>Cedula</span><input id="txtcedula" [(ngModel)]="cliente.cedula" placeholder="0111111111"/></label>  
+            <label for="txtnombre"><span>Nombre</span><input id="txtnombre" [(ngModel)]="cliente.nombre"/></label>
+            <label for="txtapellido"><span>Apellido</span><input id="txtapellido" [(ngModel)]="cliente.apellido"/></label>
+            <label for="txtcelular"><span>Celular</span><input id="txtcelular" [(ngModel)]="cliente.celular" placeholder="0999999999"/></label>
+            <label for="txtcorreo"><span>Correo</span><input id="txtcorreo" [(ngModel)]="cliente.correo" placeholder="example@gmail.com"/></label>    
+            <label for="txtdireccion"><span>Direccion</span><input id="txtdireccion" [(ngModel)]="cliente.direccion"/></label>
                 <div class="example-button-row">
-                <button id="boton" mat-raised-button>Guardar</button>
+                <button id="boton" mat-raised-button (click)="guardarWS()">Guardar</button>
                 </div>
         </div>
-        <div class="tabla">
+             <div class="tabla">
             <h2>Tabla</h2>
-        </div>
-    </div>
-    
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+              <ng-container matColumnDef="Cedula"  >
+                <mat-header-cell  *matHeaderCellDef> Cedula </mat-header-cell>
+                <mat-cell *matCellDef="let cliente"> {{cliente.cedula}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Nombre">
+                <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let cliente"> {{cliente.nombre}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Apellido">
+                <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+                <mat-cell *matCellDef="let cliente"> {{cliente.apellido}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Celular">
+                <mat-header-cell *matHeaderCellDef> Celular </mat-header-cell>
+                <mat-cell *matCellDef="let cliente"> {{cliente.celular}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Correo">
+                <mat-header-cell *matHeaderCellDef> Correo </mat-header-cell>
+                <mat-cell *matCellDef="let cliente"> {{cliente.correo}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Direccion">
+                <mat-header-cell *matHeaderCellDef> Direccion </mat-header-cell>
+                <mat-cell *matCellDef="let cliente"> {{cliente.direccion}} </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <span *ngIf="listadoClienteWS.length == 0">
+              No existen contactos
+          </span>
+          </div>
+    </div>    
 </body>
 </html>

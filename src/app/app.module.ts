@@ -9,10 +9,12 @@ import { VehiculoComponent } from './paginas/vehiculo/vehiculo.component';
 import { FacturaComponent } from './paginas/factura/factura.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //materials
+import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { HistorialComponent } from './paginas/historial/historial.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     VehiculoComponent,
     FacturaComponent,
     HistorialComponent,
+    TicketComponent,
   
   ],
   imports: [
@@ -30,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatButtonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

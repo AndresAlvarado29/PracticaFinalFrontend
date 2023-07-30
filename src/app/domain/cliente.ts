@@ -2,6 +2,7 @@ export class Cliente {
     cedula: string = '';
     nombre: string = '';
     apellido: string = '';
-    telefono: string = '';
+    celular: string = '';
+    correo: string = '';
     direccion: string = '';
 }

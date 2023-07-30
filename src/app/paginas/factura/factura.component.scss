@@ -1,11 +1,10 @@
 .container{
-    margin: auto;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: row; 
     align-items: center;
-    gap: 30px;
     height: 500px;
+    gap: 130px;
 }
 .formulario{
     display: flex;
@@ -76,3 +75,25 @@ input{
     display: table-cell;
     max-width: 600px;
   }
+  //tabla
+  .mat-mdc-table {
+    overflow: auto;
+    width: 100%; 
+    }
+    mat-cell{
+        background-color: #818A89;
+      }
+      mat-table{
+        background-color: #4F7CAC;
+      }
+      
+.tabla{
+    width: 875px;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    top: auto;
+    max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
