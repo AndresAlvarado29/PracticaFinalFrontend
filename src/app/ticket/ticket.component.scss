@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    height: 345px;
+    width: 300px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-image:url('https://previews.123rf.com/images/ylivdesign/ylivdesign1612/ylivdesign161203670/67528621-icono-de-ticket-de-estacionamiento-ilustraci%C3%B3n-de-dibujos-animados-de-icono-de-vector-de-ticket-de.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.formulario{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 300px;
+    gap: 5px;
+}
+label{  
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

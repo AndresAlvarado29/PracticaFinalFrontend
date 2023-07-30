@@ -5,13 +5,15 @@ import { ClienteComponent } from './paginas/cliente/cliente.component';
 import { VehiculoComponent } from './paginas/vehiculo/vehiculo.component';
 import { FacturaComponent } from './paginas/factura/factura.component';
 import { HistorialComponent } from './paginas/historial/historial.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 const routes: Routes = [
   {path:"paginas/parqueadero", component: ParqueaderoComponent},
   {path:"paginas/cliente", component: ClienteComponent},
   {path:"paginas/vehiculo", component: VehiculoComponent},
   {path:"paginas/factura", component: FacturaComponent},
-  {path:"paginas/historial", component: HistorialComponent}
+  {path:"paginas/historial", component: HistorialComponent},
+  {path:"paginas/ticket", component: TicketComponent}
 ];
 
 @NgModule({

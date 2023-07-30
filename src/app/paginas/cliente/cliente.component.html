@@ -10,12 +10,12 @@
     <div class="container">
         <div class="formulario">
             <h2>Nuevo Usuario</h2>
-            <label for="txtcedula"><span>Cedula</span><input id="txtcedula" [(ngModel)]="cliente.cedula" placeholder="0111111111"/></label>  
-            <label for="txtnombre"><span>Nombre</span><input id="txtnombre" [(ngModel)]="cliente.nombre"/></label>
-            <label for="txtapellido"><span>Apellido</span><input id="txtapellido" [(ngModel)]="cliente.apellido"/></label>
+            <label for="txtcedula"><span>Cedula</span><input id="txtcedula" [(ngModel)]="cliente.cedula" placeholder="0111111111" [style.background]="inputCedula" required/></label>  
+            <label for="txtnombre"><span>Nombre</span><input id="txtnombre" [(ngModel)]="cliente.nombre" [style.background]="inputNombre" required/></label>
+            <label for="txtapellido"><span>Apellido</span><input id="txtapellido" [(ngModel)]="cliente.apellido" [style.background]="inputApellido" required/></label>
             <label for="txtcelular"><span>Celular</span><input id="txtcelular" [(ngModel)]="cliente.celular" placeholder="0999999999"/></label>
             <label for="txtcorreo"><span>Correo</span><input id="txtcorreo" [(ngModel)]="cliente.correo" placeholder="example@gmail.com"/></label>    
-            <label for="txtdireccion"><span>Direccion</span><input id="txtdireccion" [(ngModel)]="cliente.direccion"/></label>
+            <label for="txtdireccion"><span>Direccion</span><input id="txtdireccion" [(ngModel)]="cliente.direccion" [style.background]="inputDireccion" required/></label>
                 <div class="example-button-row">
                 <button id="boton" mat-raised-button (click)="guardarWS()">Guardar</button>
                 </div>
