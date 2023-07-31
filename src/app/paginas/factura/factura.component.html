@@ -15,17 +15,16 @@
                 <label for="txtfecha"><span>Fecha</span><input id="txtfecha" placeholder="0111111111"/></label>  
             </div>
             <div class="ceduyruc">
-                <label for="txtcedula"><span>Cedula/RUC</span><input id="txtcedula" placeholder="0111111111"/></label>    
-                <label for="txtcedula"><span>Cedula</span><input type="checkbox" id="txtcedula" name="opciones" value="txtcedula"></label>
-            <label for="txtruc"><span>RUC</span> <input type="checkbox" id="txtruc" name="opciones" value="txtruc"></label>
+                <label for="txtcedula"><span>Cedula/RUC</span><input id="txtcedula" placeholder="0111111111" [(ngModel)]="cliente.cedula"/></label> 
+                <button class="botonB" (click)="buscar(cliente)" mat-raised-button>Buscar</button>   
             </div>
             <div class="nomyape">
-                <label for="txtnombre"><span>Nombre</span><input id="txtnombre" placeholder="JUAN"/></label>  
-                <label for="txtapellido"><span>Apellido</span><input id="txtapellido" placeholder="PEREZ"/></label>  
+                <label for="txtnombre"><span>Nombre</span><input id="txtnombre" placeholder="JUAN" [(ngModel)]="txtnombre"/></label>  
+                <label for="txtapellido"><span>Apellido</span><input id="txtapellido" placeholder="PEREZ" [(ngModel)]="txtapellido"/></label>  
             </div>
             <div class="corycel">
-                <label for="txtcorreo"><span>Correo</span><input id="txtcorreo" placeholder="0111111111"/></label>  
-                <label for="txtcelular"><span>Celular</span><input id="txtcelular" placeholder="0111111111"/></label>   
+                <label for="txtcorreo"><span>Correo</span><input id="txtcorreo" placeholder="0111111111" [(ngModel)]="txtcorreo"/></label>  
+                <label for="txtcelular"><span>Celular</span><input id="txtcelular" placeholder="0111111111" [(ngModel)]="txtcelular"/></label>   
             </div>
             <div class="detypres">
                 <label for="txtdetalle"><span>Detalle</span><input id="txtcelular" placeholder="0111111111"/></label>  

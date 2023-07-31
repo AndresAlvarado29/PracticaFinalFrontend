@@ -78,3 +78,17 @@ input:hover{
     overflow-x: hidden;
     overflow-y: auto;
 }
+.botonT{
+    border-radius: 10px;
+    border: none;
+    background-color: #4F7CAC;
+    padding: 5px;
+    display: flex;
+    margin: 5px;
+  }
+  .botonT:hover{
+    opacity: 0.75;
+  }
+  .selected-row {
+    background-color: lightgray;
+  }

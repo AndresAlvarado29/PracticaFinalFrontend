@@ -14,4 +14,10 @@ export class ServiciosWebService {
   getAll(){
   return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/all")
   } 
+  delete(cedula: string) {
+    return this.http.delete<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/borrar/"+cedula);
+  }
+  buscar(cedula: string){
+    return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/buscar/"+cedula);
+  }
 }

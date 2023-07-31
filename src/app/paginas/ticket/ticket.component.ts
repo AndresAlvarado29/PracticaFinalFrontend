@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 
 @Component({
-  selector: 'app-vehiculo',
-  templateUrl: './vehiculo.component.html',
-  styleUrls: ['./vehiculo.component.scss']
+  selector: 'app-ticket',
+  templateUrl: './ticket.component.html',
+  styleUrls: ['./ticket.component.scss']
 })
-export class VehiculoComponent {
+export class TicketComponent {
   constructor(private router: Router,private app: AppComponent){}
   ngOnInit(){
     setTimeout(() => {
@@ -17,7 +17,7 @@ export class VehiculoComponent {
     visualizar(){
       const currentUrl = this.router.url;
       console.log(currentUrl)
-      if(currentUrl=='/paginas/vehiculo'){
+      if(currentUrl=='/paginas/ticket'){
         this.app.ocultarDiv()
       }
     }
