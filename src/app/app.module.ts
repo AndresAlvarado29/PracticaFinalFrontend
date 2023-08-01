@@ -9,7 +9,7 @@ import { VehiculoComponent } from './paginas/vehiculo/vehiculo.component';
 import { FacturaComponent } from './paginas/factura/factura.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //materials
-import {MatTableModule,MatTableDataSource} from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { HistorialComponent } from './paginas/historial/historial.component';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TicketComponent } from './paginas/ticket/ticket.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     
   ],
   providers: [],

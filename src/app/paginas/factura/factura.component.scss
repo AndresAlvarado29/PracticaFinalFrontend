@@ -7,12 +7,17 @@
     gap: 130px;
 }
 .formulario{
+    background-color: #4a4a4a;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
     padding: 30px;
-    width: 97%;
+    width: 69%;
+    height: 91%;
+    bottom: -7px;
+    position: relative;
+    gap: 3px;
 }
 label{
     display: flex;
@@ -42,7 +47,7 @@ input{
     display: flex;
     flex-direction: column;
 }
-.ceduyruc{
+.cedu{
     display: flex;
     gap: 10px;
     width: 100%;
@@ -63,12 +68,34 @@ input{
 .detypres{
     display: flex;
     gap: 10px;
-    width: 100%;
+    width: 76%;
+}
+#txtpreciounitario{
+    width: 23%;
+}
+#txtsubtotal{
+    width: 28%;
+    position: relative;
+} 
+.ivaytot{
+    display: flex;
+    gap: 10px;
+    width: 43%; 
+    position: relative;
+    left: 33%;
+}
+#txtiva{
+    width: 23%;
+}
+#txttotal{
+    width: 28%;
 }
 #boton{
-    background-color: #588B8B;
+    background-color: #185353;
     display: flex;
-    margin: 20px;
+    margin: 3px;
+    position: relative;
+    top: -37px;
 }
 .example-button-row {
     display: table-cell;
@@ -97,7 +124,12 @@ input{
     overflow-y: auto;
 }
 .botonB{
+    background-color: #185353;
     display: flex;
     position: relative;
     margin-top: 20px;
+}
+#txtfecha{
+    padding: 6px 1px;
+    top: 50px;
 }

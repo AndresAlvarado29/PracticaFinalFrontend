@@ -11,28 +11,39 @@
         <div class="formulario">
             <h2>Factura</h2>
             <div class="numyfec">
-                <label for="txtnumero"><span>Numero de Factura</span><input id="txtnumero" placeholder="0111111111"/></label>  
-                <label for="txtfecha"><span>Fecha</span><input id="txtfecha" placeholder="0111111111"/></label>  
+                <label for="txtnumero"><span>Numero de Factura</span><input id="txtnumero" placeholder="01001-011001" [(ngModel)]="factura.numero"/></label>  
+                <mat-form-field class="example-full-width">
+                  <label for="txtfecha"><span>Fecha</span></label>
+                  <input matInput [matDatepicker]="picker" id="txtfecha" [(ngModel)]="factura.fecha"/>
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
             </div>
-            <div class="ceduyruc">
-                <label for="txtcedula"><span>Cedula/RUC</span><input id="txtcedula" placeholder="0111111111" [(ngModel)]="cliente.cedula"/></label> 
+            <div class="cedu">
+                <label for="txtcedula"><span>Cedula</span><input id="txtcedula" placeholder="0111111111" [(ngModel)]="cliente.cedula"/></label> 
                 <button class="botonB" (click)="buscar(cliente)" mat-raised-button>Buscar</button>   
             </div>
             <div class="nomyape">
-                <label for="txtnombre"><span>Nombre</span><input id="txtnombre" placeholder="JUAN" [(ngModel)]="txtnombre"/></label>  
-                <label for="txtapellido"><span>Apellido</span><input id="txtapellido" placeholder="PEREZ" [(ngModel)]="txtapellido"/></label>  
+                <label for="txtnombre"><span>Nombre</span><input id="txtnombre"  [(ngModel)]="txtnombre"/></label>  
+                <label for="txtapellido"><span>Apellido</span><input id="txtapellido"  [(ngModel)]="txtapellido"/></label>
+                <label for="txtdireccion"><span>Direccion</span><input id="txtdireccion"  [(ngModel)]="txtdireccion"/></label>  
             </div>
             <div class="corycel">
-                <label for="txtcorreo"><span>Correo</span><input id="txtcorreo" placeholder="0111111111" [(ngModel)]="txtcorreo"/></label>  
-                <label for="txtcelular"><span>Celular</span><input id="txtcelular" placeholder="0111111111" [(ngModel)]="txtcelular"/></label>   
+                <label for="txtcorreo"><span>Correo</span><input id="txtcorreo" placeholder="example@gmail.com" [(ngModel)]="txtcorreo"/></label>  
+                <label for="txtcelular"><span>Celular</span><input id="txtcelular" placeholder="0999999999" [(ngModel)]="txtcelular"/></label>   
             </div>
             <div class="detypres">
-                <label for="txtdetalle"><span>Detalle</span><input id="txtcelular" placeholder="0111111111"/></label>  
-                <label for="txtprecio"><span>Precio Unitario</span><input id="txtprecio" placeholder="0111111111"/></label>       
-                <label for="txtptotal"><span>Precio Total</span><input id="txtptotal" placeholder="0111111111"/></label>  
+                <label for="txtdetalle"><span>Detalle</span><input id="txtdetalle" placeholder="parqueo" [(ngModel)]="detalle.detalle"/></label>  
+                <label for="txtpreciounitario"><span>Precio Unitario</span><input id="txtpreciounitario" [(ngModel)]="detalle.costoUnitario" /></label>       
+                <label for="txtsubtotal"><span>Subtotal</span><input id="txtsubtotal" [(ngModel)]="factura.subtotal" /></label>  
             </div>
+            <div class="ivaytot">
+              <label for="txtiva"><span>Iva</span><input id="txtiva" [(ngModel)]="txtiva"/></label>         
+              <label for="txttotal"><span>Precio Total</span><input id="txttotal" [(ngModel)]="factura.total" /></label>  
+          </div>
             <div class="example-button-row">
-                <button id="boton" mat-raised-button>Guardar</button>
+                <button id="boton" mat-raised-button (click)="guardarWS()">Guardar</button>
             </div>
         </div>
         <div class="tabla">
