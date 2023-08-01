@@ -7,17 +7,41 @@
     <link rel="stylesheet" href="vehiculo.component.scss">
 </head>
 <body>
+   
     <div class="container">
         <div class="formulario">
             <h2>Nuevo Vechiculo</h2>
-            <label for="txtplaca"><span>Placa</span> <input id="txtplaca" placeholder="PBS-4324"/></label>  
-            <label for="txtmarca"><span>Marca</span><input id="txtmarca"/></label>
-            <label for="txttipo"><span>Tipo</span><input id="txttipo" placeholder="Ej: camioneta, auto, etc"/></label>
+            <label for="txtplaca"><span>Placa</span> <input id="txtplaca" [(ngModel)]="vehiculo.placa" placeholder="PBS-4324"/></label>  
+            <label for="txtmarca"><span>Marca</span><input id="txtmarca" [(ngModel)]="vehiculo.marca" placeholder="CHEVROLET"/></label>
+            <label for="txttipo"><span>Tipo</span><input id="txttipo" [(ngModel)]="vehiculo.tipo" placeholder="Ej: camioneta, auto, etc"/></label>
                 <div class="example-button-row">
-                <button id="boton" mat-raised-button>Guardar Vehiculo</button>
+                <button id="boton" mat-raised-button (click)="guardarWS()">Guardar Vehiculo</button>
                 </div>
         </div>
+
     </div>
-    
+    <div class="tabla">
+   <h2>Tabla</h2>
+   <mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+     <ng-container matColumnDef="Placa"  >
+       <mat-header-cell  *matHeaderCellDef> Placa </mat-header-cell>
+       <mat-cell *matCellDef="let vehiculo"> {{vehiculo.placa}} </mat-cell>
+     </ng-container>
+     <ng-container matColumnDef="Marca">
+       <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
+       <mat-cell *matCellDef="let vehiculo"> {{vehiculo.marca}} </mat-cell>
+     </ng-container>
+     <ng-container matColumnDef="Tipo">
+       <mat-header-cell *matHeaderCellDef> Tipo </mat-header-cell>
+       <mat-cell *matCellDef="let vehiculo"> {{vehiculo.tipo}} </mat-cell>
+     </ng-container>
+     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+   </mat-table>
+   <span *ngIf="listadoVehiculosWS.length == 0">
+     No existen vehiculos
+ </span>
+ </div>
+
 </body>
 </html>
