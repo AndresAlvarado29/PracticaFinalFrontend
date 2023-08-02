@@ -47,7 +47,21 @@ export class VehiculoComponent implements OnInit{
 
 
   guardarWS() {
-/*
+    
+    this.servicio.saveVehiculo(this.vehiculo).subscribe(data => {
+      console.log(data);
+
+      this.limpiarCampos();
+
+      console.log(this.vehiculo);
+      this.servicio.saveVehiculo(this.vehiculo);
+      this.vehiculo = new Vehiculo();
+
+    })
+  }
+
+  guardarWSS() {
+
     const valores: Vehiculo = {
       placa: this.placa,
       marca: this.marca,
@@ -82,19 +96,7 @@ export class VehiculoComponent implements OnInit{
     console.log(this.vehiculo);
     this.servicio.saveVehiculo(this.vehiculo);
     this.vehiculo = new Vehiculo();
-
-    */
-
-    this.servicio.saveVehiculo(this.vehiculo).subscribe(data => {
-      console.log(data);
-
-      this.limpiarCampos();
-
-      console.log(this.vehiculo);
-      this.servicio.saveVehiculo(this.vehiculo);
-      this.vehiculo = new Vehiculo();
-
-    })
+    
   }
 
 

@@ -8,11 +8,11 @@
 </head>
 <body>
     <div class="container">
-        <div class="formulario">
+        <div class="formulario" id="formulario">
         <h3>Ticket</h3>
         <label for="txtnumero"><span>Numero</span><input id="txtnumero" readonly/></label>
         <label for="txtplaca"><span>Placa</span><input id="txtplaca" placeholder="ABC-1234"/></label>  
-        <button id="boton" mat-raised-button>Nuevo Vehiculo</button>
+        <button id="boton" mat-raised-button (click)="buscarVehiculo(vehiculo)">Buscar</button>
         <label for="txtentrada"><span>Fecha/Hora de Entrada</span><input id="txtentrada"/></label>
         <label for="txtsalida"><span>Fecha/Hora de Entrada</span><input id="txtsalida"/></label>
         <div class="example-button-row">

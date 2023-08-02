@@ -1,5 +1,4 @@
-export class Cliente {
-    fecha: Date= new Date();
+export class Ticket {
     puesto: number = 0;
     horaEntrada: number = 0;
     horaSalida: number = 0;
