@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="formulario">
+        <div class="formulario" id="formulario">
             <h2>Nuevo Usuario</h2>
             <label for="txtcedula"><span>Cedula</span><input id="txtcedula" [(ngModel)]="cliente.cedula" placeholder="0111111111" [style.background]="inputCedula" required/></label>  
             <label for="txtnombre"><span>Nombre</span><input id="txtnombre" [(ngModel)]="cliente.nombre" [style.background]="inputNombre" required/></label>
@@ -46,6 +46,15 @@
               <ng-container matColumnDef="Direccion">
                 <mat-header-cell *matHeaderCellDef> Direccion </mat-header-cell>
                 <mat-cell *matCellDef="let cliente"> {{cliente.direccion}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Accion">
+                <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
+                <mat-cell *matCellDef="let cliente">
+                  <!--ngClass se utiliza para agregar clases dinamicamente en funcion de una condicion para agregar css al boton de la fila que va hacer editada con la
+                  condicion de que selectedCliente sea igual a el cliente-->
+                  <button class="botonT" (click)="editarWS(cliente)" [ngClass]="{ 'selected-row': cliente === selectedCliente }">Editar</button>
+                  <button class="botonT" (click)="borrarWS(cliente)">Borrar</button>
+                </mat-cell>
               </ng-container>
               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

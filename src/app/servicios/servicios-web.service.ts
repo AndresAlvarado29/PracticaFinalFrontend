@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from '../domain/cliente';
 import { Vehiculo } from '../domain/vehiculo';
+import { Factura } from '../domain/factura';
+import { DetalleFactura } from '../domain/detalleFactura';
 
 @Injectable({
   providedIn: 'root'
@@ -40,4 +42,22 @@ export class ServiciosWebService {
   */
 
   
+  delete(cedula: string) {
+    return this.http.delete<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/borrar/"+cedula);
+  }
+  buscar(cedula: string){
+    return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/buscar/"+cedula);
+  }
+  saveFactura(factura: Factura){
+    return this.http.post<any>("http://localhost:8080/ParqueaderoPF/rs/factura/crear",factura)
+      }
+  getAllFactura(){
+    return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/factura/all")
+  }
+  saveDetalleFactura(detalleFactura: DetalleFactura){
+    return this.http.post<any>("http://localhost:8080/ParqueaderoPF/rs/detalle/crear",detalleFactura)
+  }
+  getAllDetalleFactura(){
+    return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/detalle/all")
+  }
 }

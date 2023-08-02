@@ -8,7 +8,7 @@ import { ServiciosWebService } from 'src/app/servicios/servicios-web.service';
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
-  styleUrls: ['./cliente.component.scss']
+  styleUrls: ['./cliente.component.scss'],
 })
 export class ClienteComponent implements OnInit {
   inputCedula: string ='#588B8B';
@@ -17,7 +17,9 @@ export class ClienteComponent implements OnInit {
   inputDireccion: string ='#588B8B';
   cliente: Cliente = new Cliente();
   listadoClienteWS: any;
-  displayedColumns: string[] = ['Cedula', 'Nombre', 'Apellido', 'Celular', 'Correo', 'Direccion'];
+  dataSourceF:any;
+  selectedCliente: Cliente | null = null;// en este se puede guardar cliente o nulo y se inicializa en nulo
+  displayedColumns: string[] = ['Cedula', 'Nombre', 'Apellido', 'Celular', 'Correo', 'Direccion', 'Accion'];
   dataSource = this.servicio.getAll();
   @ViewChild(MatTable)
   table!: MatTable<Cliente>;
@@ -31,16 +33,17 @@ export class ClienteComponent implements OnInit {
       }  
   }
 ngOnInit(){
-  this.listadoClienteWS= this.servicio.getAll();
-  this.dataSource = this.listadoClienteWS;
+  this.listadoClienteWS= this.servicio.getAll(); //aparece la lista
+  this.dataSource = this.listadoClienteWS;//refrescar tabla de datos
   setTimeout(() => {
     this.visualizar() // Realizar el cambio de forma asincrónica
   });
 }
+//guarda cliente
 guardarWS(){
   this.vacio();
   if(this.vacio()==false){
-    alert("Error 98: Campos vacios")
+    alert("Error 98: Campos vacios") //validacion de espacios vacios
   }else{
   console.log(this.cliente)
   this.servicio.save(this.cliente).subscribe(data=>{
@@ -48,6 +51,7 @@ guardarWS(){
       alert("Codigo: "+data.codigo+" "+data.mensaje); 
       this.inputCedula='#e93c3c' 
     }else{
+      this.selectedCliente = null;//sirve para limpiar el formulario despues de guardar
       this.colorOriginal();
       console.log("cliente/guardado" + this.cliente);
       this.ngOnInit();
@@ -55,6 +59,27 @@ guardarWS(){
   });
   this.cliente= new Cliente();
 }
+}
+borrarWS(cliente: Cliente){
+/*es un mensaje de confirmacion antes de realizar la 
+accion de borrar, cuando se acepte se borrar caso contrario 
+no se hara nada*/ 
+  const confirmacion = window.confirm("¿Estás seguro de realizar esta acción?");
+  if(confirmacion){
+    this.servicio.delete(cliente.cedula).subscribe(()=>{
+      this.ngOnInit();
+      alert("Cliente borrado exitosamente");
+    })
+  }
+}
+editarWS(cliente: Cliente){
+  this.selectedCliente = cliente;
+  /*
+  Object.assign hace una copia del cliente para tabajar con una
+  entidad independiente para no afectar a la tabla original sin
+  pasar antes de la funcion guardarWS 
+  */
+  this.cliente = Object.assign({}, cliente);  // Copia el cliente seleccionado en el formulario
 }
 visualizar(){
   const currentUrl = this.router.url;
@@ -95,6 +120,4 @@ vacio(){
   }
   return bandera;
 }
-  
-
 }

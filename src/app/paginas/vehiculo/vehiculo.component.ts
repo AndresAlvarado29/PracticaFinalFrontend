@@ -6,6 +6,9 @@ import Swal from 'sweetalert2';
 import { MatTable } from '@angular/material/table';
 import { Subject } from 'rxjs';
 
+import { AppComponent } from 'src/app/app.component';
+
+
 @Component({
   selector: 'app-vehiculo',
   templateUrl: './vehiculo.component.html',
@@ -28,6 +31,7 @@ export class VehiculoComponent implements OnInit{
   table!: MatTable<Vehiculo>; 
 
   constructor(private servicio: ServiciosWebService, 
+    private app: AppComponent,
     private router: Router) {
       let params = this.router.getCurrentNavigation()?.extras.queryParams;
       if(params){
@@ -43,8 +47,21 @@ export class VehiculoComponent implements OnInit{
      this.servicio.getAll().subscribe(responde=>{
        this.listadoVehiculosWS=responde;
      })
+
+     setTimeout(() => {
+      this.visualizar() // Realizar el cambio de forma asincrónica
+    });
+
+     
    }
 
+   visualizar(){
+    const currentUrl = this.router.url;
+    console.log(currentUrl)
+    if(currentUrl=='/paginas/vehiculo'){
+      this.app.ocultarDiv()
+    }
+  }
 
   guardarWS() {
     
@@ -105,5 +122,5 @@ export class VehiculoComponent implements OnInit{
     this.marca = '';
     this.tipo = '';
   }
-
+  
 }
