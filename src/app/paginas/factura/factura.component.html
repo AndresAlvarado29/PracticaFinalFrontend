@@ -24,6 +24,9 @@
                 <label for="txtcedula"><span>Cedula</span><input id="txtcedula" placeholder="0111111111" [(ngModel)]="cliente.cedula"/></label> 
                 <button class="botonB" (click)="buscar(cliente)" mat-raised-button>Buscar</button>  
             </div>
+            <div class="ticket">
+              <button class="botonB" (click)="buscar(cliente)" mat-raised-button>Buscar Ticket</button>  
+          </div>
             <div class="nomyape">
                 <label for="txtnombre"><span>Nombre</span><input id="txtnombre"  [(ngModel)]="txtnombre"/></label>  
                 <label for="txtapellido"><span>Apellido</span><input id="txtapellido"  [(ngModel)]="txtapellido"/></label>

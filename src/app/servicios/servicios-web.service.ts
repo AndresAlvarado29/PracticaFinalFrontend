@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from '../domain/cliente';
+import { Vehiculo } from '../domain/vehiculo';
 import { Factura } from '../domain/factura';
 import { DetalleFactura } from '../domain/detalleFactura';
 
@@ -16,6 +17,24 @@ export class ServiciosWebService {
   getAll(){
   return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/all")
   } 
+  saveVehiculo(vehiculo: Vehiculo){
+    return this.http.post<any>("http://localhost:8080/ParqueaderoPF/rs/vehiculos", vehiculo)
+  }
+
+  updateVehiculo(vehiculo: Vehiculo){
+    return this.http.post<any>("http://localhost:8080/ParqueaderoPF/rs/vehiculos", vehiculo)
+  }
+
+  getAllVehiculo(){
+    return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/vehiculos/listarVehiculos")
+  }
+
+  /*
+  deleteVehiculo(placa: string){
+    //const url: string = `http://localhost:8080/ParqueaderoPF/rs/personas/${cedula}`
+    return this.http.delete<HttpResponse<any>>(`http://localhost:8080/ParqueaderoPF/rs/vehiculos/${placa}`)
+  }
+  */
   delete(cedula: string) {
     return this.http.delete<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/borrar/"+cedula);
   }
