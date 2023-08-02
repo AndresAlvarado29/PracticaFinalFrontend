@@ -28,6 +28,9 @@ export class ServiciosWebService {
   getAllFactura(){
     return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/factura/all")
   }
+  buscarFactura(numeroFactura: string){
+    return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/factura/buscarN/"+numeroFactura)
+  }
   saveDetalleFactura(detalleFactura: DetalleFactura){
     return this.http.post<any>("http://localhost:8080/ParqueaderoPF/rs/detalle/crear",detalleFactura)
   }
