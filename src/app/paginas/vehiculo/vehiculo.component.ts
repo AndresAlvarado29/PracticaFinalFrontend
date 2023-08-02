@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Vehiculo } from 'src/app/domain/vehiculo';
 import { ServiciosWebService } from '../../servicios/servicios-web.service';
@@ -14,6 +15,7 @@ import { AppComponent } from 'src/app/app.component';
   templateUrl: './vehiculo.component.html',
   styleUrls: ['./vehiculo.component.scss']
 })
+
 export class VehiculoComponent implements OnInit{
 
   vehiculo: Vehiculo = new Vehiculo();
@@ -122,5 +124,7 @@ export class VehiculoComponent implements OnInit{
     this.marca = '';
     this.tipo = '';
   }
+
   
+
 }
