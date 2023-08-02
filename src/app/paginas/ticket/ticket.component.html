@@ -1,24 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
     <div class="container">
-        <div class="formulario">
+        <div class="formulario" id="formulario">
         <h3>Ticket</h3>
-        <label for="txtnumero"><span>Numero</span><input id="txtnumero" readonly [(ngModel)]="ticket.puesto"/></label>
+        <label for="txtnumero"><span>Numero</span><input id="txtnumero" readonly/></label>
         <label for="txtplaca"><span>Placa</span><input id="txtplaca" placeholder="ABC-1234" [(ngModel)]="vehiculo.placa"/></label>  
-        <label for="txtentrada"><span>Fecha/Hora de Entrada</span><input id="txtentrada" [(ngModel)]="ticket.horaEntrada"/></label>
+        <button id="boton" mat-raised-button (click)="buscarVehiculo(vehiculo)">Buscar</button>
+
+        <label for="txtentrada"><span>Fecha/Hora de Entrada</span><input id="txtentrada" [(ngModel)]="fechaIngreso"/></label>
         <label for="txtsalida"><span>Fecha/Hora de Salida</span><input id="txtsalida" [(ngModel)]="ticket.horaSalida"/></label>
         <div class="example-button-row">
             <button id="boton" mat-raised-button>Generar</button>
-            <button mat-raised-button routerLink="/paginas/vehiculo" >Cancelar</button>
-            </div>  
+            <button mat-raised-button routerLink="/paginas/ticket" >Cancelar</button>
         </div>
+     </div>
+
     </div>
-</body>
-</html>
+    <div class="container" *ngIf="oculto">
+        <div class="formulario">
+            <h2>Nuevo Vechiculo</h2>
+            <label for="txtplaca"><span>Placa</span> <input id="txtplaca" [(ngModel)]="vehiculo.placa" placeholder="PBS-4324"/></label>  
+            <label for="txtmarca"><span>Marca</span><input id="txtmarca" [(ngModel)]="vehiculo.marca" placeholder="CHEVROLET"/></label>
+            <label for="txttipo"><span>Tipo</span><input id="txttipo" [(ngModel)]="vehiculo.tipo" placeholder="Ej: camioneta, auto, etc"/></label>
+                <div class="example-button-row">
+                <button id="boton" mat-raised-button (click)="guardarWS()">Guardar</button>
+                <button type="button" mat-raised-button (click)="cancelarVehiculo()">Cancelar</button>
+                </div>
+        </div>
+
+    </div>
+
+<!--
+<ol>
+    <li>
+      <mat-form-field>
+        <mat-label>What's your name?</mat-label>
+        <input matInput [(ngModel)]="vehiculo.placa">
+      </mat-form-field>
+    </li>
+    <li>
+      <button id="boton" mat-raised-button (click)="buscarVehiculo(vehiculo)">Buscar</button>
+    </li>
+    <li *ngIf="vehiculo>
+      You chose: <em>{{vehiculo}</em>
+    </li>
+  </ol>
+-->
