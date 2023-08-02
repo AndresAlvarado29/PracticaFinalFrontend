@@ -22,6 +22,6 @@
    transform-style: preserve-3d; /* Mantiene la estructura 3D del contenido */
    transition: transform 0.9s; /* Agrega una transición para una animación suave */
 }
-.puesto:focus{
-    transform: rotateY(180deg); /* Rota la tarjeta 180 grados en el eje*/
-}
+/*.puesto:hover{
+    transform: rotateY(180deg); // Rota la tarjeta 180 grados en el eje
+}*/
