@@ -4,7 +4,7 @@
     flex-direction: row; 
     align-items: center;
     height: 500px;
-    gap: 130px;
+    gap: 8px;
 }
 .formulario{
     background-color: #4a4a4a;
@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: stretch;
     padding: 30px;
-    width: 69%;
+    width: auto;
     height: 91%;
     bottom: -7px;
     position: relative;
@@ -41,7 +41,7 @@ input{
 .nomyape{
     display: flex;
     gap: 10px;
-    width: 100%;  
+    width: 100%; 
 }
 .nomyape label{
     display: flex;
@@ -114,7 +114,7 @@ input{
       }
       
 .tabla{
-    width: 875px;
+    width: 693px;
     display:flex;
     flex-direction: column;
     position: relative;

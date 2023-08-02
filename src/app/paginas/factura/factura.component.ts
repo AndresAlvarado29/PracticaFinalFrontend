@@ -24,16 +24,16 @@ export class FacturaComponent implements OnInit{
   txtdireccion:string='';
   listadoFacturaWS:any;
   selectedFactura: Factura | null = null;
-  displayedColumns: string[] = ['Numero', 'Nombre', 'Apellido', 'Fecha', 'Detalle', 'Total', 'Accion'];
+  displayedColumns: string[] = ['N° de Factura', 'Nombre', 'Apellido', 'Fecha', 'Detalle', 'Total', 'Accion'];
   dataSource = this.servicio.getAllFactura();
   @ViewChild(MatTable)
-  table!: MatTable<Cliente>;
+  table!: MatTable<Factura>;
   constructor(private router: Router, private app: AppComponent, private servicio: ServiciosWebService){
   this.listadoFacturaWS=this.servicio.getAllFactura();
   let params = this.router.getCurrentNavigation()?.extras.queryParams;
   if(params){
     this.factura= new Factura();
-    this.factura=params['cliente']
+    this.factura=params['factura']
   }
   }
 ngOnInit(){
@@ -43,20 +43,34 @@ ngOnInit(){
     this.visualizar() // Realizar el cambio de forma asincrónica
   });
 }
-guardarWS(){
+guardarWS(factura: Factura,detalle: DetalleFactura){
   this.cliente.apellido=this.txtapellido
   this.cliente.nombre=this.txtnombre
   this.cliente.correo=this.txtcorreo
   this.cliente.celular=this.txtcelular
   this.cliente.direccion=this.txtdireccion
-  this.detalle.costoTotal=this.factura.total
-  this.detalle.cantidad=1;
+  factura.cliente=this.cliente; 
   this.factura.iva=0.12;
-  console.log(this.detalle)
-  this.servicio.CREAR(this.factura,this.detalle).subscribe(data=>{
-    
-    console.log("guardado correctamente"+this.factura)
+  factura.detalles.push(this.guardarDetalle(detalle))
+  console.log(factura.detalles)
+  this.servicio.saveFactura(factura).subscribe(data=>{
+    console.log("esta es la data", data)
   });
+  this.ngOnInit();
+}
+editarWS(factura: Factura){
+  this.selectedFactura=factura
+  this.txtcelular=factura.cliente.celular
+  this.factura=Object.assign({},factura)
+}
+guardarDetalle(detalleFactura: DetalleFactura){
+  console.log("entrastes al guardar detalle")
+  detalleFactura.costoTotal=this.factura.total
+  detalleFactura.cantidad=1;
+  this.servicio.saveDetalleFactura(detalleFactura).subscribe(data=>{
+    console.log("detalle: "+data);
+  });
+  return detalleFactura;
 }
   visualizar(){
     const currentUrl = this.router.url;

@@ -11,7 +11,7 @@
         <div class="formulario">
             <h2>Factura</h2>
             <div class="numyfec">
-                <label for="txtnumero"><span>Numero de Factura</span><input id="txtnumero" placeholder="01001-011001" [(ngModel)]="factura.numero"/></label>  
+                <label for="txtnumero"><span>Numero de Factura</span><input id="txtnumero" placeholder="01001-011001" [(ngModel)]="factura.numeroFactura"/></label>  
                 <mat-form-field class="example-full-width">
                   <label for="txtfecha"><span>Fecha</span></label>
                   <input matInput [matDatepicker]="picker" id="txtfecha" [(ngModel)]="factura.fecha"/>
@@ -22,7 +22,7 @@
             </div>
             <div class="cedu">
                 <label for="txtcedula"><span>Cedula</span><input id="txtcedula" placeholder="0111111111" [(ngModel)]="cliente.cedula"/></label> 
-                <button class="botonB" (click)="buscar(cliente)" mat-raised-button>Buscar</button>   
+                <button class="botonB" (click)="buscar(cliente)" mat-raised-button>Buscar</button>  
             </div>
             <div class="nomyape">
                 <label for="txtnombre"><span>Nombre</span><input id="txtnombre"  [(ngModel)]="txtnombre"/></label>  
@@ -43,42 +43,51 @@
               <label for="txttotal"><span>Precio Total</span><input id="txttotal" [(ngModel)]="factura.total" /></label>  
           </div>
             <div class="example-button-row">
-                <button id="boton" mat-raised-button (click)="guardarWS()">Guardar</button>
+                <button id="boton" mat-raised-button (click)="guardarWS(factura,detalle)">Guardar</button>
             </div>
         </div>
         <div class="tabla">
             <h2>Tabla</h2>
-        <!--    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
-              <ng-container matColumnDef="Cedula"  >
+          <mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+              <ng-container matColumnDef="N° de Factura"  >
                 <mat-header-cell  *matHeaderCellDef> N° de Factura </mat-header-cell>
-                <mat-cell *matCellDef="let cliente"> {{cliente.cedula}} </mat-cell>
+                <mat-cell *matCellDef="let factura"> {{factura.numeroFactura}} </mat-cell>
               </ng-container>
               <ng-container matColumnDef="Nombre">
-                <mat-header-cell *matHeaderCellDef> Cedula/RUC </mat-header-cell>
-                <mat-cell *matCellDef="let cliente"> {{cliente.nombre}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let factura"> {{factura.cliente.nombre}} </mat-cell>
               </ng-container>
               <ng-container matColumnDef="Apellido">
-                <mat-header-cell *matHeaderCellDef> Nombre y Apellido </mat-header-cell>
-                <mat-cell *matCellDef="let cliente"> {{cliente.apellido}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+                <mat-cell *matCellDef="let factura"> {{factura.cliente.apellido}} </mat-cell>
               </ng-container>
-              <ng-container matColumnDef="Celular">
+              <ng-container matColumnDef="Fecha">
+                <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+                <mat-cell *matCellDef="let factura"> {{factura.fecha}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Detalle">
                 <mat-header-cell *matHeaderCellDef> Detalle </mat-header-cell>
-                <mat-cell *matCellDef="let cliente"> {{cliente.celular}} </mat-cell>
+                <mat-cell *matCellDef="let factura"> {{factura.detalles[0].detalle}} </mat-cell>
               </ng-container>
-              <ng-container matColumnDef="Correo">
+              <ng-container matColumnDef="Total">
                 <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
-                <mat-cell *matCellDef="let cliente"> {{cliente.correo}} </mat-cell>
+                <mat-cell *matCellDef="let factura"> {{factura.total}} </mat-cell>
               </ng-container>
-              <ng-container matColumnDef="Direccion">
-                <mat-header-cell *matHeaderCellDef> Direccion </mat-header-cell>
-                <mat-cell *matCellDef="let cliente"> {{cliente.direccion}} </mat-cell>
+              <ng-container matColumnDef="Accion">
+                <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
+                <mat-cell *matCellDef="let cliente">
+                  <!--ngClass se utiliza para agregar clases dinamicamente en funcion de una condicion para agregar css al boton de la fila que va hacer editada con la
+                  condicion de que selectedCliente sea igual a el cliente-->
+                  <button class="botonT"(click)="editarWS(factura)" [ngClass]="{'selected-row':factura===selectedFactura}">Editar</button>
+                  <button class="botonT" >Borrar</button>
+                </mat-cell>
               </ng-container>
               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
             </mat-table>
-            <span *ngIf="listadoClienteWS.length == 0">
+            <span *ngIf="listadoFacturaWS.length == 0">
               No existen contactos
-          </span>-->
+          </span>
           </div>
     </div>
 </body>
