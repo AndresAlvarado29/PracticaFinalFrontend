@@ -17,6 +17,11 @@ export class ServiciosWebService {
   getAll(){
   return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/all")
   } 
+
+  findVehiculo(placa: String){
+   return this.http.get<any> ("http://localhost:8080/ParqueaderoPF/rs/vehiculos/buscarVehiculo/"+ placa)
+  }
+
   saveVehiculo(vehiculo: Vehiculo){
     return this.http.post<any>("http://localhost:8080/ParqueaderoPF/rs/vehiculos", vehiculo)
   }
@@ -35,6 +40,8 @@ export class ServiciosWebService {
     return this.http.delete<HttpResponse<any>>(`http://localhost:8080/ParqueaderoPF/rs/vehiculos/${placa}`)
   }
   */
+
+  
   delete(cedula: string) {
     return this.http.delete<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/borrar/"+cedula);
   }
