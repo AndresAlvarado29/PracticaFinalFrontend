@@ -8,11 +8,21 @@
     margin: -8px -16px 0px -16px;  
     padding: 10px;  
 }
+.botones{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+ }
 .botones button{
+  color: white;
     border: none;
-    font-size: medium;
+    font-size: 14pt;
+    background-color: #1E2D24;
 }
-
+.botones button:focus{
+  border-radius: 10px;
+  background-color: #2098D1;
+}
 .logo img{    
 height: 100px;
 width: 100px;

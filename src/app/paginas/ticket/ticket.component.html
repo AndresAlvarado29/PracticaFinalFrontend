@@ -10,10 +10,10 @@
     <div class="container">
         <div class="formulario">
         <h3>Ticket</h3>
-        <label for="txtnumero"><span>Numero</span><input id="txtnumero" readonly/></label>
-        <label for="txtplaca"><span>Placa</span><input id="txtplaca" placeholder="ABC-1234"/></label>  
-        <label for="txtentrada"><span>Fecha/Hora de Entrada</span><input id="txtentrada"/></label>
-        <label for="txtsalida"><span>Fecha/Hora de Salida</span><input id="txtsalida"/></label>
+        <label for="txtnumero"><span>Numero</span><input id="txtnumero" readonly [(ngModel)]="ticket.puesto"/></label>
+        <label for="txtplaca"><span>Placa</span><input id="txtplaca" placeholder="ABC-1234" [(ngModel)]="vehiculo.placa"/></label>  
+        <label for="txtentrada"><span>Fecha/Hora de Entrada</span><input id="txtentrada" [(ngModel)]="ticket.horaEntrada"/></label>
+        <label for="txtsalida"><span>Fecha/Hora de Salida</span><input id="txtsalida" [(ngModel)]="ticket.horaSalida"/></label>
         <div class="example-button-row">
             <button id="boton" mat-raised-button>Generar</button>
             <button mat-raised-button routerLink="/paginas/vehiculo" >Cancelar</button>
