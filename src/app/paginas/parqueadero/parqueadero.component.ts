@@ -12,6 +12,32 @@ import { ServiciosWebService } from 'src/app/servicios/servicios-web.service';
 export class ParqueaderoComponent {
   modoNocturno: boolean=false;
   
+
+  puestos: any[] = [
+   
+    {
+      "nombre": " Puesto Libre N°:",
+      "valor": 1
+    },
+    {
+      "nombre": " Puesto Libre N°:",
+      "valor": 2
+    },
+    {
+      "nombre": " Puesto Libre N°:",
+      "valor": 3
+    },
+    {
+      "nombre": " Puesto Libre N°:",
+      "valor": 4
+    },
+    {
+      "nombre": " Puesto Libre N°:",
+      "valor": 5
+    }
+
+  ]
+
   constructor(private router: Router, private app: AppComponent,private servicio: ServiciosWebService){
 
   }
@@ -33,4 +59,10 @@ ngOnInit(){
       this.app.modo()
     }
   }
+
+
+  obtenerPuesto(puesto: number) {
+    this.servicio.numeroPuesto=puesto;
+  }
+
 }

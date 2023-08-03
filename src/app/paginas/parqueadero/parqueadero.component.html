@@ -6,68 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="parqueadero.component.scss">
 </head>
-<body>
-    <div  id="puestos" class="puestos">
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:1</h3>
+<body id="puestos" class="puestos">
+    <div  class="puestosT" *ngFor="let item of puestos ; let i = index">
+        <button class="puesto" (click)="obtenerPuesto(item.valor)" routerLink="/paginas/ticket">
+            <h3> {{item.nombre}}{{i+1}}</h3>
         </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:2</h3>
+        <button class="puesto" (click)="obtenerPuesto(item.valor)" routerLink="/paginas/ticket">
+            <h3> {{item.nombre}}{{i+6}}</h3>
         </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:3</h3>
+        <button class="puesto" (click)="obtenerPuesto(item.valor)" routerLink="/paginas/ticket">
+            <h3> {{item.nombre}}{{i+11}}</h3>
         </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:4</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:5</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:6</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:7</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:8</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:9</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:10</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:11</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:12</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:13</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:14</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:15</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:16</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:17</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:18</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:19</h3>
-        </button>
-        <button class="puesto" routerLink="/paginas/ticket">
-            <h3> Puesto Libre N°:20</h3>
+        <button class="puesto" (click)="obtenerPuesto(item.valor)" routerLink="/paginas/ticket">
+            <h3> {{item.nombre}}{{i+16}}</h3>
         </button>
     </div>
-</body>
-</html>
+
+    

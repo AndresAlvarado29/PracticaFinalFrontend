@@ -1,62 +1,106 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ticket.component.scss">
-    <title>Document</title>
-  </head>
-  <body>
-    <div id="containerT" class="container">
-      <div class="containerTicket">
-              <div class="formulario" id="formulario">
-              <h3>Ticket</h3>
-              <label for="txtnumero"><span>Numero</span><input id="txtnumero" readonly/></label>
-              <label for="txtplaca"><span>Placa</span><input id="txtplaca" placeholder="ABC-1234" [(ngModel)]="vehiculo.placa"/></label>  
-              <button id="boton" mat-raised-button (click)="buscarVehiculo(vehiculo)">Buscar</button>
-      
-              <label for="txtentrada"><span>Fecha/Hora de Entrada</span><input id="txtentrada" [(ngModel)]="fechaIngreso"/></label>
-              <label for="txtsalida"><span>Fecha/Hora de Salida</span><input id="txtsalida" [(ngModel)]="ticket.horaSalida"/></label>
-              <div class="example-button-row">
-                  <button id="boton" mat-raised-button>Generar</button>
-                  <button mat-raised-button routerLink="/paginas/ticket" >Cancelar</button>
-              </div>
-           </div>
-      
-          </div>
-          <div class="vehiculo">
-            <div class="containerTicket" *ngIf="oculto">
-              <div class="formulario">
-                  <h2>Nuevo Vechiculo</h2>
-                  <label for="txtplaca"><span>Placa</span> <input id="txtplaca" [(ngModel)]="vehiculo.placa" placeholder="PBS-4324"/></label>  
-                  <label for="txtmarca"><span>Marca</span><input id="txtmarca" [(ngModel)]="vehiculo.marca" placeholder="CHEVROLET"/></label>
-                  <label for="txttipo"><span>Tipo</span><input id="txttipo" [(ngModel)]="vehiculo.tipo" placeholder="Ej: camioneta, auto, etc"/></label>
-                      <div class="example-button-row">
-                      <button id="boton" mat-raised-button (click)="guardarWS()">Guardar</button>
-                      <button type="button" mat-raised-button (click)="cancelarVehiculo()">Cancelar</button>
-                      </div>
-              </div>
-          </div>
-          </div>
-          
-      
-      <!--
-      <ol>
-          <li>
-            <mat-form-field>
-              <mat-label>What's your name?</mat-label>
-              <input matInput [(ngModel)]="vehiculo.placa">
-            </mat-form-field>
-          </li>
-          <li>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ticket.component.scss">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-4">
+      <div id="container" class="container">
+        <div class="containerTicket">
+          <div class="formulario" id="formulario">
+            <h3>Ticket</h3>
+            <button (click)="cal()" >cal</button>
+            <button (click)="col()" >col</button>
+            <button (click)="suma()" >calcular</button>
+            <label for="txtnumero"><span>Numero</span><input id="txtnumero" readonly /></label>
+            <label for="txtplaca"><span>Placa</span><input id="txtplaca" placeholder="ABC-1234"
+                [(ngModel)]="vehiculo.placa" /></label>
             <button id="boton" mat-raised-button (click)="buscarVehiculo(vehiculo)">Buscar</button>
-          </li>
-          <li *ngIf="vehiculo>
-            You chose: <em>{{vehiculo}</em>
-          </li>
-        </ol>
-      -->
-         </div>
-  </body>
-  </html>
+            <hr>
+            <label for="txtplaca" *ngIf="placaBuscada!"><span>PlacaBuscada</span><input id="txtplaca"
+                [(ngModel)]="placaBuscada" /></label>
+            <label for="txtentrada"><span>Fecha/Hora de Entrada</span><input id="txtentrada"
+                [(ngModel)]="formattedDate" /></label>
+            <!--<button id="boton" mat-raised-button (click)="formattedDate">SALIR</button>-->
+            <label for="txtsalida"><span>Fecha/Hora de Salida</span><input id="txtsalida"
+                [(ngModel)]="ticket.horaSalida" /></label>
+            <div class="example-button-row">
+              <button id="boton" mat-raised-button (click)="guardarTicketWS()">Generar</button>
+              <button mat-raised-button routerLink="/paginas/parqueadero">Cancelar</button>
+            </div>
+          </div>
+        </div>
+        <div class="containerV" *ngIf="oculto">
+          <div class="formulario">
+            <h2>Nuevo Vechiculo</h2>
+            <label for="txtplaca"><span>Placa</span> <input id="txtplaca" [(ngModel)]="vehiculo.placa"
+                placeholder="PBS-4324" /></label>
+            <label for="txtmarca"><span>Marca</span><input id="txtmarca" [(ngModel)]="vehiculo.marca"
+                placeholder="CHEVROLET" /></label>
+            <label for="txttipo"><span>Tipo</span><input id="txttipo" [(ngModel)]="vehiculo.tipo"
+                placeholder="Ej: camioneta, auto, etc" /></label>
+            <div class="example-button-row">
+              <button id="boton" mat-raised-button (click)="guardarWS()">Guardar</button>
+              <button type="button" mat-raised-button (click)="cancelarVehiculo()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    <div class="col-8">
+      <span *ngIf="listadoTicketsWS.length == 0">No existen contactos</span>
+
+      <div class="col">
+        <div class="card mb-2">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <table class="table">
+              <thead>
+
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">NUMERO TICKET</th>
+                  <th scope="col">FECHA PUESTO</th>
+                  <th scope="col">FECHA INGRESO</th>
+                  <th scope="col">FECHA SALIDA</th>
+                  <th scope="col">VEHICULO PLACA</th>
+                  <th scope="col">VEHICULO MARCA</th>
+                  <th scope="col">VEHICULO TIPO</th>
+                  <th scope="col">ACCION</th>
+
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let item of listadoTicketsWS">
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.numeroTicket }}</td>
+                  <td>{{ item.puesto }}</td>
+                  <td>{{ item?.horaEntrada}}</td>
+                  <td>{{ item?.horaSalida}}</td>
+                  <td>{{ item.vehiculo?.placa }}</td>
+                  <td>{{ item.vehiculo?.marca }}</td>
+                  <td>{{ item.vehiculo?.tipo }}</td>
+                  <button (click)="(item)">SALIR</button>
+
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,16 +1,5 @@
-.puestos{
-    display: flex;
-    flex-wrap: wrap; /* Hace que las imágenes se ajusten automáticamente a la línea */
-    height: 772px;
-    width: 1325px;
-    flex-direction: column;
-    padding: 25px;
-    gap: 13px;
-    overflow: hidden;
-}
 .puesto{
     border-radius: 15px;
-   display: flex;
    justify-content: center;
    align-items: center;
    background-color: green; 
@@ -19,8 +8,8 @@
    margin-left: 1%;
    padding: 17px;
    cursor: pointer;
-   transform-style: preserve-3d; /* Mantiene la estructura 3D del contenido */
-   transition: transform 0.9s; /* Agrega una transición para una animación suave */
+   transform-style: preserve-3d; // Mantiene la estructura 3D del contenido 
+   transition: transform 0.9s;  //Agrega una transición para una animación suave 
 }
 /*.puesto:hover{
     transform: rotateY(180deg); // Rota la tarjeta 180 grados en el eje
@@ -29,12 +18,13 @@
 .nocturno{
         color: #ffff;
         background-color: #4a4a4a;
-        display: flex;
-        flex-wrap: wrap; /* Hace que las imágenes se ajusten automáticamente a la línea */
-        height: 772px;
-        width: 1325px;
-        flex-direction: column;
-        padding: 25px;
-        gap: 13px;
-        overflow: hidden;
 }
+.puestos{
+    background-color: white;
+}
+.puestosT{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 168px;
+}
+

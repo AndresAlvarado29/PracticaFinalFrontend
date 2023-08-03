@@ -4,11 +4,14 @@ import { Cliente } from '../domain/cliente';
 import { Vehiculo } from '../domain/vehiculo';
 import { Factura } from '../domain/factura';
 import { DetalleFactura } from '../domain/detalleFactura';
+import { Ticket } from '../domain/ticket';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiciosWebService {
+
+  public numeroPuesto: any = null;
 
   constructor(private http: HttpClient) { }
   save(cliente: Cliente){
@@ -17,6 +20,9 @@ export class ServiciosWebService {
   getAll(){
   return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/all")
   } 
+
+ 
+
   saveVehiculo(vehiculo: Vehiculo){
     return this.http.post<any>("http://localhost:8080/ParqueaderoPF/rs/vehiculos", vehiculo)
   }
@@ -37,6 +43,15 @@ export class ServiciosWebService {
     return this.http.delete<HttpResponse<any>>(`http://localhost:8080/ParqueaderoPF/rs/vehiculos/${placa}`)
   }
   */
+
+  saveTicket(ticket: Ticket){
+    return this.http.post<any>("http://localhost:8080/ParqueaderoPF/rs/tickets/", ticket)
+  }
+
+  getAllTicket(){
+    return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/tickets/listarTickets")
+  }
+  
   delete(cedula: string) {
     return this.http.delete<any>("http://localhost:8080/ParqueaderoPF/rs/cliente/borrar/"+cedula);
   }

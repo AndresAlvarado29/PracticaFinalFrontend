@@ -5,7 +5,7 @@
     flex-direction: column;
     height: 500px;
     gap: 30px;
-    width: 450px;
+    width: 1350px;
 }
 .formulario{
     display: flex;
@@ -55,6 +55,11 @@ input:hover{
     margin-left: 8px;
   }
 
+  .tabla{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
   //nocturno
   .nocturno {
     display: flex;
@@ -63,9 +68,6 @@ input:hover{
     flex-direction: column;
     height: 500px;
     gap: 30px;
-    width: 450px;
+    width: 1350px;
     background-color: #4a4a4a;
-    body{
-        background-color: #4a4a4a;
-    }
   }
