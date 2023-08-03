@@ -1,50 +1,64 @@
-
-.encabezado{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #1E2D24;
-    margin: -8px -16px 0px -16px;  
-    padding: 10px;  
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #1E2D24;
+  margin: -8px -16px 0px -16px;
+  padding: 10px;
 }
-.botones{
+
+.botones {
   display: flex;
   flex-direction: row;
   gap: 10px;
- }
-.botones button{
-  color: white;
-    border: none;
-    font-size: 14pt;
-    background-color: #1E2D24;
 }
-.botones button:focus{
+
+.boton{
+  color: white;
+  border: none;
+  font-size: 14pt;
+  background-color: #1e2d2400;
+}
+
+.botones button:focus {
   border-radius: 10px;
   background-color: #2098D1;
 }
-.logo img{    
-height: 100px;
-width: 100px;
-border-radius: 50px;
-display: flex;
-position: absolute;
-margin-top: -100px;
-right: 0%;
+
+.botonesU {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: -586px;
 }
-.piedepagina{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    justify-content: center;
-    background-color: #1E2D24;
-    bottom: 0;
-    height: 60px;
-    margin: 6px -16px 0px -16px;
-    padding-bottom: 30px;
+
+.logo img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  display: flex;
+  position: absolute;
+  margin-top: -147px;
+  right: 0%;
 }
-.piedepagina p{
+
+.piedepagina {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  background-color: #1E2D24;
+  bottom: 0;
+  height: 60px;
+  margin: 0px -16px 0px -16px;
+  padding-bottom: 30px;
+}
+
+.piedepagina p {
   display: flex;
   position: relative;
   top: 16px;
@@ -52,29 +66,46 @@ right: 0%;
   justify-content: center;
   flex-direction: column;
 }
-.centro{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;  
+
+.centro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.centro img{
+
+.centro img {
   position: relative;
   top: 0;
   opacity: 75%;
   height: 100vh;
   width: 416vh;
 }
-.centro h2{
+
+.centro h2 {
   font-size: 64pt;
   display: flex;
   position: absolute;
   top: 250px;
   justify-content: center;
-  
+
 }
-.centro button{
+.logotipo{
+background-image: url(./imagenes/logoparqueadero.png);
+height: 100px;
+color: transparent;
+background-repeat: no-repeat;
+background-position: center;
+}
+.logotipoNocturno{
+  background-image: url(./imagenes/logosparqueaderoblancoynegro.png);
+  height: 100px;
+  color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  }
+.centro button {
   display: flex;
   position: absolute;
   font-size: medium;
@@ -82,49 +113,121 @@ right: 0%;
   justify-content: center;
   background-color: rgba(13, 187, 71, 0.829);
 }
+
 //animacion boton central
 .hvr-radial-out {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    position: relative;
-    overflow: hidden;
-    background: #e1e1e1;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-  }
-  .hvr-radial-out:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #2098D1;
-    border-radius: 100%;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-  }
-  .hvr-radial-out:hover, .hvr-radial-out:focus, .hvr-radial-out:active {
-    color: white;
-  }
-  .hvr-radial-out:hover:before, .hvr-radial-out:focus:before, .hvr-radial-out:active:before {
-    -webkit-transform: scale(2);
-    transform: scale(2);
-  }
-  //estetica del boton
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  background: #e1e1e1;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.hvr-radial-out:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2098D1;
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-radial-out:hover,
+.hvr-radial-out:focus,
+.hvr-radial-out:active {
+  color: white;
+}
+
+.hvr-radial-out:hover:before,
+.hvr-radial-out:focus:before,
+.hvr-radial-out:active:before {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+
+//estetica del boton
 .example-button-row button,
 .example-button-row a {
   margin-right: 8px;
+}
+
+//animacion letras 
+.animate-charcter {
+  text-transform: uppercase;
+  background-image: linear-gradient(-225deg,
+      #231557 0%,
+      #44107a 29%,
+      #ff1361 67%,
+      #fff800 100%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 10s linear infinite;
+  display: inline-block;
+  font-size: 190px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+//modo nocturno
+/* Modo nocturno */
+.nocturno {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: -8px -16px 0px -16px;
+  padding: 10px;
+  background-color: #121212;
+  color: #ffffff; body{
+    color: #ffffff;
+    background-color: #121212;
+  }
+}
+.pieNocturno{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  background-color: #121212;
+  color: #ffffff;
+  bottom: 0;
+  height: 60px;
+  margin: 0px -16px 0px -16px;
+  padding-bottom: 30px; p {
+    display: flex;
+    position: relative;
+    top: 16px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 }

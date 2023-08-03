@@ -10,11 +10,18 @@ import { ServiciosWebService } from 'src/app/servicios/servicios-web.service';
   styleUrls: ['./parqueadero.component.scss']
 })
 export class ParqueaderoComponent {
+  modoNocturno: boolean=false;
+  
   constructor(private router: Router, private app: AppComponent,private servicio: ServiciosWebService){
 
   }
 ngOnInit(){
+  console.log(this.app.modoNocturno)
+  if(this.modoNocturno==true){
+    this.app.cambiarModo(this.app.modoNocturno);
+  }
   setTimeout(() => {
+    
     this.visualizar() // Realizar el cambio de forma asincrónica
   });
 }
@@ -23,6 +30,7 @@ ngOnInit(){
     console.log(currentUrl)
     if(currentUrl=='/paginas/parqueadero'){
       this.app.ocultarDiv()
+      this.app.modo()
     }
   }
 }

@@ -1,10 +1,34 @@
 .mat-mdc-table {
-    overflow: auto;
-    width: 100%; 
-    }
-    mat-cell{
-        background-color: #818A89;
-      }
-      mat-table{
-        background-color: #4F7CAC;
-      }
+  overflow: auto;
+  width: 100%;
+}
+
+mat-cell {
+  background-color: #818A89;
+}
+
+mat-table {
+  background-color: #4F7CAC;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  height: 500px;
+  gap: 130px;
+  width: 1365px;
+}
+
+//nocturno
+.nocturno {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  height: 500px;
+  gap: 130px;
+  width: 1365px;
+  background-color: #4a4a4a;
+}

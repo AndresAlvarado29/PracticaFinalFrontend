@@ -1,11 +1,10 @@
-.container{
+.containerTicket{
     display: flex;
-    height: 345px;
+    height: 417px;
     width: 300px;
     position: absolute;
-
-    position: relative;
     justify-content: center;
+    background-color: #4a4a4a;
     align-items: center;
     background-image:url('https://previews.123rf.com/images/ylivdesign/ylivdesign1612/ylivdesign161203670/67528621-icono-de-ticket-de-estacionamiento-ilustraci%C3%B3n-de-dibujos-animados-de-icono-de-vector-de-ticket-de.jpg');
     background-repeat: no-repeat;
@@ -21,9 +20,43 @@
     width: 300px;
     gap: 5px;
 }
+.vehiculo{
+display: flex;
+position: absolute;
+height: 345px;
+width: 300px;
+top: 77px;
+justify-content: center;
+align-items: center;
+left: 833px;
+}
 label{  
     justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.container {
+    display: flex;
+    justify-content: stretch;
+    flex-direction: row;
+    align-items: center;
+    height: 500px;
+    gap: 130px;
+    width: 1365px;
+    position: relative;
+  }
+  
+  //nocturno
+  .nocturno {
+    display: flex;
+    justify-content: stretch;
+    flex-direction: row;
+    align-items: center;
+    height: 500px;
+    gap: 130px;
+    width: 1365px;
+    background-color: #4a4a4a;
+    position: relative;
+    
+  }

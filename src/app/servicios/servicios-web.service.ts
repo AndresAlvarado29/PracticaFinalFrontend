@@ -28,7 +28,9 @@ export class ServiciosWebService {
   getAllVehiculo(){
     return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/vehiculos/listarVehiculos")
   }
-
+  findVehiculo(placa: string){
+    return this.http.get<any>("http://localhost:8080/ParqueaderoPF/rs/vehiculos/buscarVehiculo/"+placa)
+  }
   /*
   deleteVehiculo(placa: string){
     //const url: string = `http://localhost:8080/ParqueaderoPF/rs/personas/${cedula}`

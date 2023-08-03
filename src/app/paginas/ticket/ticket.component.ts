@@ -50,12 +50,13 @@ export class TicketComponent implements OnInit{
     }
 
     ngOnInit(): void {
-
       this.fechaIngreso = new Date();
-
        this.servicio.getAll().subscribe(responde=>{
          this.listadoVehiculosWS=responde;
-       })
+       });
+       setTimeout(() => {
+        this.visualizar() // Realizar el cambio de forma asincrónica
+      });
      }
 
      visualizar(){
@@ -63,16 +64,14 @@ export class TicketComponent implements OnInit{
       console.log(currentUrl)
       if(currentUrl=='/paginas/ticket'){
         this.app.ocultarDiv()
+        this.app.modo()
       }
     }
 
      guardarWS() {
-    
       this.servicio.saveVehiculo(this.vehiculo).subscribe(data => {
         console.log(data);
-  
         this.limpiarCampos();
-
         this.oculto=false;
         console.log(this.oculto);
   
@@ -93,7 +92,8 @@ export class TicketComponent implements OnInit{
     buscarVehiculo(vehiculo: Vehiculo){
       this.servicio.findVehiculo(vehiculo.placa).subscribe(data=>{
       console.log(data)
-      if(data==null) this.oculto=true;
+      if(data==null) 
+      this.oculto=true;
       return data
       })
     }

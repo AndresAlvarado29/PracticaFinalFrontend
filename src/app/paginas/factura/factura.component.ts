@@ -13,9 +13,11 @@ import { ServiciosWebService } from 'src/app/servicios/servicios-web.service';
   styleUrls: ['./factura.component.scss']
 })
 export class FacturaComponent implements OnInit{
+  contadorFacturas: number = 1;
   factura: Factura = new Factura();
   cliente: Cliente = new Cliente();
   detalle: DetalleFactura = new DetalleFactura();
+  inputCedula: string = '#588B8B';
   txtiva:number =0.12;
   txtnombre:string ='';
   txtapellido:string ='';
@@ -24,7 +26,7 @@ export class FacturaComponent implements OnInit{
   txtdireccion:string='';
   listadoFacturaWS:any;
   selectedFactura: Factura | null = null;
-  displayedColumns: string[] = ['N° de Factura', 'Nombre', 'Apellido', 'Fecha', 'Detalle', 'Total', 'Accion'];
+  displayedColumns: string[] = ['Numero','Cedula', 'Nombre', 'Apellido', 'Fecha', 'Detalle', 'Total', 'Accion'];
   dataSource = this.servicio.getAllFactura();
   @ViewChild(MatTable)
   table!: MatTable<Factura>;
@@ -39,38 +41,51 @@ export class FacturaComponent implements OnInit{
 ngOnInit(){
   this.listadoFacturaWS=this.servicio.getAllFactura();
   this.dataSource= this.listadoFacturaWS;
+  this.factura.numeroFactura = `${this.contadorFacturas}`;
   setTimeout(() => {
     this.visualizar() // Realizar el cambio de forma asincrónica
+    this.app.modo()
   });
 }
-guardarWS(factura: Factura,detalle: DetalleFactura){
+buscarF(factura: Factura) {
+  this.servicio.buscarFactura(factura.numeroFactura).subscribe(data=>{
+    console.log(data.cliente.nombre)
+  })
+  return factura.numeroFactura;
+}
+guardarWS(){
+  if(this.cliente.cedula==""){
+    this.inputCedula = '#e93c3c'; 
+    alert("Error 98: Campos vacios")
+  }else{
+    console.log(this.factura)
   this.cliente.apellido=this.txtapellido
   this.cliente.nombre=this.txtnombre
   this.cliente.correo=this.txtcorreo
   this.cliente.celular=this.txtcelular
   this.cliente.direccion=this.txtdireccion
-  factura.cliente=this.cliente; 
+  this.factura.cliente=this.cliente; 
+  this.factura.estado="Activo";
   this.factura.iva=0.12;
-  factura.detalles.push(this.guardarDetalle(detalle))
-  console.log(factura.detalles)
-  this.servicio.saveFactura(factura).subscribe(data=>{
-    console.log("esta es la data", data)
+  this.detalle.costoTotal=this.factura.total
+  this.detalle.cantidad=1;
+  this.factura.detalles.push(this.detalle)
+  this.factura.numeroFactura=this.contadorFacturas.toString();
+  this.contadorFacturas++;
+  console.log(this.factura.detalles)
+  this.servicio.saveFactura(this.factura).subscribe(data=>{
+    console.log("factura guardada: ", data)
+    this.ngOnInit();
+    this.factura=new Factura();
+    this.detalle=new DetalleFactura();
+    this.inputCedula= '#588B8B';
+    this.cliente = new Cliente();
+    this.limpiar();
+    this.factura.numeroFactura = `${this.contadorFacturas}`;
   });
-  this.ngOnInit();
-}
-editarWS(factura: Factura){
-  this.selectedFactura=factura
-  this.txtcelular=factura.cliente.celular
-  this.factura=Object.assign({},factura)
-}
-guardarDetalle(detalleFactura: DetalleFactura){
-  console.log("entrastes al guardar detalle")
-  detalleFactura.costoTotal=this.factura.total
-  detalleFactura.cantidad=1;
-  this.servicio.saveDetalleFactura(detalleFactura).subscribe(data=>{
-    console.log("detalle: "+data);
-  });
-  return detalleFactura;
+  
+  }
+  
 }
   visualizar(){
     const currentUrl = this.router.url;
@@ -91,4 +106,12 @@ guardarDetalle(detalleFactura: DetalleFactura){
       return data;
     })
   }
+  limpiar(){
+  this.txtnombre ='';
+  this.txtapellido ='';
+  this.txtcorreo ='';
+  this.txtcelular ='';
+  this.txtdireccion='';
+  }
+  
 }

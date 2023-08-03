@@ -9,4 +9,5 @@ export class Factura {
     total: number = 0;
     cliente: Cliente=new Cliente();
     detalles: DetalleFactura[]=new Array<DetalleFactura>();
+    estado: string='';
 }

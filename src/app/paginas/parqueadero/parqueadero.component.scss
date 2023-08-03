@@ -25,3 +25,16 @@
 /*.puesto:hover{
     transform: rotateY(180deg); // Rota la tarjeta 180 grados en el eje
 }*/
+//modo nocturno
+.nocturno{
+        color: #ffff;
+        background-color: #4a4a4a;
+        display: flex;
+        flex-wrap: wrap; /* Hace que las imágenes se ajusten automáticamente a la línea */
+        height: 772px;
+        width: 1325px;
+        flex-direction: column;
+        padding: 25px;
+        gap: 13px;
+        overflow: hidden;
+}

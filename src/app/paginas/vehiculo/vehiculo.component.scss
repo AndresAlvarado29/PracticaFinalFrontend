@@ -54,3 +54,18 @@ input:hover{
 .example-container mat-form-field + mat-form-field {
     margin-left: 8px;
   }
+
+  //nocturno
+  .nocturno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+    gap: 30px;
+    width: 450px;
+    background-color: #4a4a4a;
+    body{
+        background-color: #4a4a4a;
+    }
+  }

@@ -24,6 +24,7 @@ ngOnInit(){
     console.log(currentUrl)
     if(currentUrl=='/paginas/historial'){
       this.app.ocultarDiv()
+      this.app.modo()
     }
   }
 }

@@ -37,6 +37,7 @@ export class ClienteComponent implements OnInit {
     this.dataSource = this.listadoClienteWS;//refrescar tabla de datos
     setTimeout(() => {
       this.visualizar() // Realizar el cambio de forma asincrónica
+      this.app.modo()
     });
   }
   //guarda cliente

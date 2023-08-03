@@ -5,6 +5,7 @@
     align-items: center;
     height: 500px;
     gap: 8px;
+    width: 1365px;
 }
 .formulario{
     background-color: #4a4a4a;
@@ -14,7 +15,7 @@
     align-items: stretch;
     padding: 30px;
     width: auto;
-    height: 91%;
+    height: 453px;
     bottom: -7px;
     position: relative;
     gap: 3px;
@@ -132,4 +133,15 @@ input{
 #txtfecha{
     padding: 6px 1px;
     top: 50px;
+}
+//nocturno
+.nocturno{
+    display: flex;
+    justify-content: center;
+    flex-direction: row; 
+    align-items: center;
+    height: 500px;
+    gap: 8px;
+    background-color: #4a4a4a;
+    width: 1365px;
 }

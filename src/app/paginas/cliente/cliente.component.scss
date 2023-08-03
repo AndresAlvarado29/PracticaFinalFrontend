@@ -5,6 +5,7 @@
     align-items: center;
     height: 500px;
     gap: 130px;
+    width: 1365px;
 }
 .formulario{
     display: flex;
@@ -92,3 +93,14 @@ input:hover{
   .selected-row {
     background-color: lightgray;
   }
+  //nocturno
+  .nocturno{
+    display: flex;
+    justify-content: center;
+    flex-direction: row; 
+    align-items: center;
+    height: 500px;
+    gap: 130px;
+    width: 1365px;
+    background-color: #4a4a4a;
+}

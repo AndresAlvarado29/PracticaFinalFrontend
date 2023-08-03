@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Vehiculo } from 'src/app/domain/vehiculo';
 import { ServiciosWebService } from '../../servicios/servicios-web.service';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+//import { Swal }from 'sweetalert2';
 import { MatTable } from '@angular/material/table';
 import { Subject } from 'rxjs';
 
@@ -62,6 +62,7 @@ export class VehiculoComponent implements OnInit{
     console.log(currentUrl)
     if(currentUrl=='/paginas/vehiculo'){
       this.app.ocultarDiv()
+      this.app.modo()
     }
   }
 
@@ -105,7 +106,7 @@ export class VehiculoComponent implements OnInit{
     this.servicio.saveVehiculo(valores).subscribe(data => {
       console.log("resultado WS save", data);
       if (data.codigo == 99) {
-        Swal.fire("ERROR", data.mensaje, "warning");
+        //Swal.fire("ERROR", data.mensaje, "warning");
       }
     });
 
