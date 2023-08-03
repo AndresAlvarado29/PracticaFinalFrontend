@@ -28,7 +28,7 @@ export class VehiculoComponent implements OnInit{
   //listadoVehiculosWS = new Subject<any[]>()
 
   displayedColumns: string[] = ['Placa', 'Marca', 'Tipo'];
-  dataSource = this.servicio.getAll();
+  dataSource = this.servicio.getAllVehiculo();
   @ViewChild(MatTable)
   table!: MatTable<Vehiculo>; 
 
@@ -46,7 +46,7 @@ export class VehiculoComponent implements OnInit{
   //se ejecuta antes que la vista se cargue
   ngOnInit(): void {
     // this.listadoContactosWS.next (this.personasService.getAll())
-     this.servicio.getAll().subscribe(responde=>{
+     this.servicio.getAllVehiculo().subscribe(responde=>{
        this.listadoVehiculosWS=responde;
      })
 
